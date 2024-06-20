@@ -9,20 +9,18 @@ const upload = multer().single('file');
 async function sendEmailWithAttachment(filename: string, content: Buffer) {
   // Set up nodemailer transporter
   const transporter = nodemailer.createTransport({
-    port: 587, // Port for SMTP with STARTTLS
-    secure: false, // true for 465, false for other ports
-    //secure: true, // use SSL
+    service: 'Gmail',
     auth: {
-      user: 'amudhavamshi@gmail.com',
-      pass: 'dsafdsfsfsdf',
+      user: Deno.env.get("SMTP_USER"),
+      pass: Deno.env.get("SMTP_PASS"),
     },
   });
   
 
   // Compose email
   const mailOptions = {
-    from: "amudhavamshi@gmail.com",
-    to: "floravirgin90@gmail.com",
+    from: Deno.env.get("SMTP_USER"),
+    to: Deno.env.get("Gmail_RECIEPIENT"),
     subject: "File Upload via Deno Server",
     text: "File attached.",
     attachments: [
@@ -64,3 +62,4 @@ export const handler = async (_req: Request, _ctx: FreshContext): Promise<Respon
 import chalk from "npm:chalk@5.3.0";
 
 console.log(chalk.bgBlue(`hellow`))
+
