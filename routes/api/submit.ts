@@ -9,9 +9,9 @@ const upload = multer().single('file');
 async function sendEmailWithAttachment(filename: string, content: Buffer) {
   // Set up nodemailer transporter
   const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true, // use SSL
+    port: 587, // Port for SMTP with STARTTLS
+    secure: false, // true for 465, false for other ports
+    //secure: true, // use SSL
     auth: {
       user: 'amudhavamshi@gmail.com',
       pass: 'tdxrctlczcvneudg',
