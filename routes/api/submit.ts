@@ -14,7 +14,7 @@ async function sendEmailWithAttachment(filename: string, content: Buffer) {
     //secure: true, // use SSL
     auth: {
       user: 'amudhavamshi@gmail.com',
-      pass: 'tdxrctlczcvneudg',
+      pass: 'dsafdsfsfsdf',
     },
   });
   
