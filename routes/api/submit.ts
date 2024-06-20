@@ -50,3 +50,9 @@ export const handler = async (_req: Request, _ctx: FreshContext): Promise<Respon
 }
 
  
+import chalk from "npm:chalk@5.3.0";
+
+console.log(chalk.bgBlue(`hellow`))
+
+
+ 
